@@ -1,0 +1,30 @@
+function timeConversion(s) {
+    // Write your code here
+    let time = s.split(':');
+    let hour = time[0];
+    let min = time[1];
+    let sec = time[2];
+    let ampm = sec.slice(-2);
+    sec = sec.slice(0, -2);
+
+    if (ampm === 'PM') {
+        if (hour === '12') {
+            hour = '12';
+        } else {
+            hour = parseInt(hour) + 12;
+        }
+    } else if (ampm === 'AM') {
+        if (hour === '12') {
+            hour = '00';
+        }
+    } else {
+        return 'Invalid time';
+    }
+
+    return hour + ':' + min + ':' + sec;
+    
+}
+
+
+const waktu = timeConversion("07:05:45PM")
+console.log(waktu)
